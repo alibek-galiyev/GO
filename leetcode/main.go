@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 
-	longestcommonprefix "main.go/014_longest_common_prefix"
+	validparentheses "main.go/020_valid_parentheses"
 )
 
 func main() {
-	strs := []string{"ab", "a"}
-	fmt.Println(longestcommonprefix.LongestCommonPrefix(strs))
+	s := "({[({[({[())]})]})]}"
+	fmt.Println(validparentheses.IsValid(s))
 }

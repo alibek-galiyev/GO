@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"slices"
+)
 
 func main() {
 	var coffeeSizes [3]string
@@ -127,8 +130,15 @@ func main() {
 
 	nbaPlayers = deleteByIndex(1, nbaPlayers)
 	fmt.Println(nbaPlayers)
+
+	dogs := []string{"Retriever", "German Shepard", "Spaniel", "Puddle"}
+
+	for i, v := range dogs {
+		fmt.Printf("In index: %d, we have dog type: %s\n", i, v)
+	}
 }
 
 func deleteByIndex(idx int, slice []string) []string {
-	return append(slice[:idx], slice[idx+1:]...)
+	// return append(slice[:idx], slice[idx+1:]...)
+	return slices.Delete(slice, idx, idx+1)
 }
