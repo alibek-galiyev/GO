@@ -1,12 +1,18 @@
 package main
 
 import (
-	"fmt"
-
-	validparentheses "main.go/020_valid_parentheses"
+	// mergetwosortedlists "main.go/021mergetwosortedlists"
+	linkedlists "main.go/linkedlists"
 )
 
 func main() {
-	s := "({[({[({[())]})]})]}"
-	fmt.Println(validparentheses.IsValid(s))
+	l := linkedlists.LinkedList{}
+	l.InsertAtBeginning(10)
+	l.InsertAtBeginning(20)
+	l.InsertAtEnding(30)
+	l.InsertAtBeginning(99)
+	l.Display()
+
+	l.DeleteNode(20)
+	l.Display()
 }
