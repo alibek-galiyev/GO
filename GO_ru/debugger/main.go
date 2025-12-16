@@ -144,6 +144,20 @@ func main() {
 
 	fmt.Println("---------------------------------------------------")
 	fmt.Println("---------------------------------------------------")
+
+	temps := []int{85, 95, 105}
+
+	for _, t := range temps {
+		err := CheckTemperature(t)
+		if err != nil {
+			fmt.Println("Temperature check failed:", err)
+		} else {
+			fmt.Println("Temperature is OK:", t)
+		}
+	}
+
+	fmt.Println("---------------------------------------------------")
+	fmt.Println("---------------------------------------------------")
 }
 
 var stock = map[string]int{
@@ -167,4 +181,14 @@ func ServeDrink(item string) (string, error) {
 	}
 	stock[item]--
 	return fmt.Sprintf("Here's your freshly brewed %s", item), nil
+}
+
+func CheckTemperature(temp int) error {
+	if temp > 100 {
+		return errors.New("Temperature too high!")
+	}
+	if temp > 90 {
+		return fmt.Errorf("Machine overheated at %d grad C", temp)
+	}
+	return nil
 }
